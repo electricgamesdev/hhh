@@ -1,0 +1,26 @@
+$intf.getOn() : function(data) {
+	try{
+					$('#$intf.on').DataTable( {
+						 		select: true,
+								data: data,
+								#foreach($mc in $intf.macros)
+									#if($mc.type=='property')
+									 $context.getContent($mc.path)
+									#end
+								#end 
+				 				,bDestroy: true
+				});
+		
+		$('#$intf.on').on( 'draw.dt', function () {
+    			#foreach($mc in $intf.macros)
+			#if($mc.type=='property')		
+				#foreach($i in $m.interfaces)
+				App.$i.on.replaceAll('/','_')(data);
+				#end	
+			#end
+			#end
+		} );
+	} catch (e) {
+            App._error(e);
+       	}
+}	

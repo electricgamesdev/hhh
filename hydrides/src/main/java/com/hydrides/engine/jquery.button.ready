@@ -1,0 +1,8 @@
+#foreach($c in $events.keySet())
+$(document).on('$c','#$intf.getOn()',function() {
+	App.$intf.getOn()_$c(null);
+});		  
+#end		  
+		  
+		  
+		  

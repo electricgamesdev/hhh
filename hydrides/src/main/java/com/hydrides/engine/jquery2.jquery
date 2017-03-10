@@ -1,0 +1,24 @@
+#foreach($event in $events.keySet())
+$intf.getOn()_$event : function(data) {
+	try{
+	    #foreach($c in $events.get($event))
+		#if($c.type == 'function')
+		data = App.$c.getAs()(data);
+		#else	
+		App.$c.getAs()(data);
+		#end
+	     #end	
+	} catch (e) {
+	     if($('#error')){
+		$('#error').html(e.message);
+	     }else{
+            	alert('Error @ $intf.getOn()_$event : '+e.message);
+       	     }
+       	}	
+}
+#if($foreach.count < $events.size()),#end
+#end		  
+		  
+		  
+		  
+		  

@@ -1,0 +1,12 @@
+
+define('$intf.getOn()_$macro.getOn()_$macro.getType()',['jquery'], function($) {
+	
+	var initialize = $context.getContent($macro.path)
+			
+		return {
+		 	
+			initialize : initialize
+			
+		}
+	 						  
+});

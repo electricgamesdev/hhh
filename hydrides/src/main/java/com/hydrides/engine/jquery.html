@@ -1,0 +1,25 @@
+$intf.getOn()_$macro.on : function(data) {
+	
+		$.ajax({
+		     
+			type: "POST",
+			contentType:"text/html",
+			url:"$context.namespace/$wave/$intf.on/$macro.on",
+			data:JSON.stringify(data),
+			success:function(data2) {
+					$('#$macro.on').html($(data2).html());
+					#foreach($i in $macro.interfaces)
+						App.$i.on.replaceAll('/','_')(data2);
+					#end
+				},
+				error: function(e) {
+					App._error(e);
+						
+				}
+			});
+		
+}
+		  
+		  
+		  
+		  

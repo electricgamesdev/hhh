@@ -1,0 +1,29 @@
+$intf.getOn()_$macro.getOn() : function(data) {
+	try{
+		$.ajax({
+		     
+			type: "POST",
+			contentType:"application/json",
+			url:"$context.namespace/$wave/$intf.on/$macro.on",
+			data:JSON.stringify(data),
+			success:function(data2) {
+					App.$intf.getOn()(data2);
+					
+					#foreach($i in $macro.interfaces)
+						App.$i.on.replaceAll('/','_')(data2);
+					#end
+				},
+				error: function(e) {
+					App._error(e);
+						
+				}
+		});
+	}catch(ex){
+		App._error(ex);
+	}	
+	
+}
+		  
+		  
+		  
+		  

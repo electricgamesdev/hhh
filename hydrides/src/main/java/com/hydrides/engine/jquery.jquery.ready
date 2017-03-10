@@ -1,0 +1,8 @@
+if('$context.namespace/$wave/$intf.on'==App.path()){
+	App.$intf.getOn()(null);
+}
+
+		  
+		  
+		  
+		  

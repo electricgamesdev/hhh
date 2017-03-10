@@ -1,0 +1,23 @@
+
+$intf.on : function(data) {
+
+#foreach($i in $flow.streams)
+#if($i.on == $intf.on)
+	try{
+	    #foreach($c in $intf.macros)
+		#if($c.type == 'function')
+		data = App.$intf.getOn()_$c.getOn()(data);
+		#else	
+		App.$intf.getOn()_$c.getOn()(data);
+		#end
+	     #end	
+	} catch (e) {
+	     App._error(e);
+       	}	
+#end
+#end		  
+
+}
+		  
+		  
+		  

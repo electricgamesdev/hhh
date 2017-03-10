@@ -1,0 +1,18 @@
+<component path="html/template.html" as="dashboard">
+	<wave path="models/wave/user_info" type="html" on="dashboard">
+	        <interface path="html/dashboard.html" type="html" on="ready" as="page" />
+		<interface path="html/menu.html" type="html" on="ready" as="menu" />
+		<interface path="html/header.html" type="html" on="ready" as="header" />
+	</wave>
+	<wave path="models/wave/dashboard" type="button" to="refresh">
+		<on path="macros/js/user_info_data.js" type="js" for="click" as="refresh" />
+	</wave>
+	<wave path="models/wave/dashboard" type="button" to="logout">
+		<interface path="macros/js/user_info_data.js" type="js" on="click" to="logout" />
+	</wave>
+	<wave path="models/wave/dashboard" type="datatable" to="service_grid">
+		<interface path="macros/velocity/dashboard_template.vm" type="velocity" on="ready" to="data" />
+		<interface path="macros/js/create_grid_buttons.js" type="property" on="ready" to="columnDefs" />
+		<interface path="macros/js/get_row_record.js" type="function" on="ready" to="get_row_record"/>
+	</wave>
+</component>

@@ -1,0 +1,5 @@
+#foreach($event in $events.keySet()) 
+	#if($event=='ready')
+		App.$intf.getOn()_ready_init();
+	#end
+#end

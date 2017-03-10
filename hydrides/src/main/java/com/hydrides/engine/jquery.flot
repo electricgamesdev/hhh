@@ -1,0 +1,25 @@
+
+$wave.replaceAll("/","_")_$form.getAs() : function(json_obj){
+
+
+	//alert($form.path.replaceAll("/","_")_$form.getTo()+":"+JSON.stringify(json_obj));
+			
+		if(json_obj['data']!=null) {
+			//alert('data='+JSON.stringify(json_obj['data']));
+		}
+		
+		if(json_obj['option']!=null){
+			//alert('option='+JSON.stringify(json_obj['option']));
+		}
+				// str = str + "$('#" + f.getAs()+
+				// "').plot(json_obj['data'],json_obj['option']).data('plot');";
+		
+		if(json_obj['data']!=null && json_obj['option']!=null ){
+				$.plot($('#$form.getTo()'), json_obj['data'],json_obj['option']);
+		}else if(json_obj['data']!=null){
+				$.plot($('#$form.getTo()'), json_obj['data']);
+		}else{
+			alert('no data for form  $form.getPath()');
+		}
+	
+}
